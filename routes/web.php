@@ -16,6 +16,7 @@ Route::get('/', function () {
 })->name('home');
 
 Auth::routes();
+Route::get('logout','Auth\LoginController@logout');
 
 Route::group(['as'=>'admin.','prefix'=>'admin','namespace'=>'Admin','middleware'=>['auth','admin']],function(){
 	Route::get('/dashboard','dashboardController@index')->name('dashboard');
